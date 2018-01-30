@@ -21,7 +21,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.dataSource = self
         setStatusBarBackgroundColor()
         tableView.allowsSelection = false
-        navigationController?.view.backgroundColor = .black
+        
     }
 
     override func didReceiveMemoryWarning() {
