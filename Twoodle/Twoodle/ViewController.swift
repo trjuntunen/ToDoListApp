@@ -21,6 +21,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.dataSource = self
         setStatusBarBackgroundColor()
         tableView.allowsSelection = false
+        navigationController?.view.backgroundColor = .black
     }
 
     override func didReceiveMemoryWarning() {
@@ -59,11 +60,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell
     }
     
-    // Sets the text of the status bar to white font
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-    
     func getCoreData() {
         do {
             tasks = try context.fetch(Task.fetchRequest())
@@ -84,6 +80,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
         }
         tableView.reloadData()
+    }
+    
+    // Sets the text of the status bar to white font
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
 
 }

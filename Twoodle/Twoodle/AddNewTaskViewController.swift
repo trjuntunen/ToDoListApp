@@ -55,12 +55,14 @@ class AddNewTaskViewController: UIViewController, UITextFieldDelegate {
         let newTask = NSManagedObject(entity: entity!, insertInto: context)
         
         // save to core data
-        newTask.setValue(taskField.text, forKey: "main")
-        newTask.setValue(detailsField.text, forKey: "detail")
-        do {
-            try context.save()
-        } catch {
-            print("Failed saving")
+        if(taskField.text != "") {
+            newTask.setValue(taskField.text, forKey: "main")
+            newTask.setValue(detailsField.text, forKey: "detail")
+            do {
+                try context.save()
+            } catch {
+                print("Failed saving")
+            }
         }
     }
     
@@ -77,8 +79,20 @@ class AddNewTaskViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func addTask(_ sender: UIButton) {
-        saveTaskToCoreData()
-        print("Saved successfull!")
+        if(taskField.text != "") {
+            saveTaskToCoreData()
+            dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    // tap anywhere on the screen to dismiss the keyboard
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    // Sets the text of the status bar to white font
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
     
 }
