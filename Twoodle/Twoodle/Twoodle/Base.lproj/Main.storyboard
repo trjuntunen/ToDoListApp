@@ -140,6 +140,7 @@
                         <viewLayoutGuide key="safeArea" id="hji-en-gEJ"/>
                     </view>
                     <connections>
+                        <outlet property="backBarButtonItem" destination="G8t-QF-D1X" id="UrB-oc-wjN"/>
                         <outlet property="detailsField" destination="aXW-B6-03d" id="KbS-GA-azw"/>
                         <outlet property="submitButton" destination="gK7-D0-Dqn" id="Vsw-TT-nRT"/>
                         <outlet property="taskField" destination="G4j-YU-9aA" id="k0w-wb-hkL"/>

@@ -11,6 +11,8 @@ import CoreData
 
 class AddNewTaskViewController: UIViewController, UITextFieldDelegate {
     
+    @IBOutlet weak var backBarButtonItem: UIBarButtonItem!
+    
     @IBOutlet weak var taskField: UITextField!
     
     @IBOutlet weak var detailsField: UITextField!
@@ -25,10 +27,16 @@ class AddNewTaskViewController: UIViewController, UITextFieldDelegate {
         taskField.becomeFirstResponder()
         taskField.delegate = self
         detailsField.delegate = self
+        let font = UIFont.systemFont(ofSize: 25);
+        backBarButtonItem.setTitleTextAttributes([NSAttributedStringKey.font: font], for:UIControlState.normal)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    private func changeBarButtonItemFontSize() {
+    
     }
     
     private func addLeftPaddingTo(textField: UITextField) {
